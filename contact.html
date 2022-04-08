@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport"
+			content="width=device-width, initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<title>admin</title>
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<link rel="stylesheet" href="css/font-awesome.css">
+		<link rel="stylesheet" href="css/nprogress.css">
+		<link rel="stylesheet" href="css/admin.css">
+
+
+	</head>
+	<body>
+
+		<div class="big-wrap">
+			<div id="content-wrap" class="content-wrap">
+				<header id="header" class="trans-all-2">
+					<button id="drawer-toggle" type="button" class="btn btn-default btn-lg ">
+						<i class="fa fa-list " aria-hidden="true"></i>
+					</button>
+
+					<div class="input-group searchForm">
+						<input type="text" class="form-control" placeholder="请输入关键词">
+						<span class="input-group-btn">
+							<button class="btn btn-default " type="button"><i class="fa fa-search"></i></button>
+						</span>
+					</div>
+
+					<ul class="menuList">
+						<li><a href="">关于我们</a></li>
+						<li><a href="">联系我们</a></li>
+						<li><a href="">登录</a></li>
+					</ul>
+
+				</header>
+
+				<div class="main-content container videoList">
+					
+					<!-- style -->
+					<link rel="stylesheet" href="css/system.css">
+					
+					<div class="padbox">
+						<div class="content-wrap-left w100">
+							<h3>联系我们</h3>
+							<div id="container_map"></div>
+							<div class="hrstyle_red"></div>
+							<div class="local_address">
+								<div class="text_show">
+									<p>地址：</p>
+									<h5>中国 · 河南省新乡市辉县薄壁镇</h5>
+								</div>
+								<div class="img_show">
+									<img style="transform: scale(.6);" src="img/local.png" >
+								</div>
+							</div>
+							<hr class="hrstyle">
+							<div class="contact_box">
+								
+								<div class="contact_box_li">
+									<div class="img_contact">
+										<img src="img/phone.png" >
+									</div>
+									<div class="img_content">
+										<p>电话：</p>
+										<h5>0373-6816666</h5>
+									</div>
+								</div>
+								<div class="contact_box_li">
+									<div class="img_contact">
+										<img src="img/shupng.png" >
+									</div>
+									<div class="img_content">
+										<p>传真：</p>
+										<h5>0373-6816666</h5>
+									</div>
+								</div>
+								<div class="contact_box_li">
+									<div class="img_contact">
+										<img src="img/phone.png" >
+									</div>
+									<div class="img_content">
+										<p>电话：</p>
+										<h5>0373-6816666</h5>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- script -->
+					<script src="js/util.js"></script>
+					<script type="text/javascript"
+						src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=WVzetsn6KrkvLwzNaRpENiyzGmn26UBX"></script>
+					<script>
+						var map = new BMapGL.Map('container_map');
+						// map.centerAndZoom(new BMapGL.Point(116.404, 39.915), 11);
+						map.centerAndZoom(new BMapGL.Point(113.923180,35.304272), 11);
+					
+						// 创建定位控件
+						var locationControl = new BMapGL.LocationControl({
+							// 控件的停靠位置（可选，默认左上角）
+							anchor: BMAP_ANCHOR_TOP_RIGHT,
+							// 控件基于停靠位置的偏移量（可选）
+							offset: new BMapGL.Size(20, 20)
+						});
+						// 将控件添加到地图上
+						map.addControl(locationControl);
+					
+						// 添加定位事件
+						locationControl.addEventListener("locationSuccess", function(e) {
+							var address = '';
+							address += e.addressComponent.province;
+							address += e.addressComponent.city;
+							address += e.addressComponent.district;
+							address += e.addressComponent.street;
+							address += e.addressComponent.streetNumber;
+							alert("当前定位地址为：" + address);
+						});
+						locationControl.addEventListener("locationError", function(e) {
+							alert(e.message);
+						});
+					</script>
+					
+				</div>
+
+				<footer id="footer">
+					
+				</footer>
+			</div>
+			<aside id="drawer" class="trans-all-2">
+			    <div class="drawer-head">
+			        <i class="logo fa fa-github-alt fa-lg" aria-hidden="true"></i>
+			        <a href="index.html" class="logo-text">短视频官网</a>
+			    </div>
+			
+			    <ul class="menu-parent menu-root">
+			        <li class="menu-child">
+			            <a href="allvideo.html" class="menu-link">
+			    			<i class="menu-icon fa fa-home"></i>
+			    			<span class="menu-desc">全部视频</span>
+			    		</a>
+			        </li>
+			    	
+			    	<li class="menu-child">
+			    	    <a class="menu-link"  href="douyin.html" >
+			    	        <i class="menu-icon fa fa-truck"></i><span class="menu-desc">抖音视频</span>
+			    	    </a>
+			    	</li>
+			    	
+			    	<li class="menu-child">
+			    	    <a class="menu-link"  href="kuaishou.html" >
+			    	        <i class="menu-icon fa fa-cog"></i><span class="menu-desc">快手视频</span>
+			    	    </a>
+			    	</li>
+			    	
+			    	<li class="menu-child">
+			    	    <a class="menu-link"  href="haokan.html" >
+			    	        <i class="menu-icon fa fa-cog"></i><span class="menu-desc">好看视频</span>
+			    	    </a>
+			    	</li>
+			    	
+			        <hr class="hrstyle">
+			    	
+			        <div class="contactBox">
+			    		<span class="contact-title">TELEPHONE</span>
+			    		<h3 class="contact-tel">0373-65155555</h3>
+			    		<p class="contact-text">24小时咨询热线</p>
+			    		<ul>
+			    			<li><span>联系人：</span><p>李总</p></li>
+			    			<li><span>地址：</span><p>河南省新乡市</p></li>
+			    		</ul>
+			    	</div>
+			    	
+			    	<hr class="hrstyle">
+			    	
+			    	<li class="menu-child">
+			    	    <a class="menu-link"  href="about.html" >
+			    	        <i class="menu-icon fa fa-truck"></i><span class="menu-desc">关于</span>
+			    	    </a>
+			    	</li>
+			    	
+			    	<li class="menu-child">
+			    	    <a class="menu-link"  href="new.html" >
+			    	        <i class="menu-icon fa fa-cog"></i><span class="menu-desc">新闻</span>
+			    	    </a>
+			    	</li>
+			    	
+			    	<li class="menu-child">
+			    	    <a class="menu-link active"  href="contact.html" >
+			    	        <i class="menu-icon fa fa-cog"></i><span class="menu-desc">联系</span>
+			    	    </a>
+			    	</li>
+			        
+			        <li class="menu-child">
+			            <a class="menu-link"  href="message.html" >
+			                <i class="menu-icon fa fa-cog"></i><span class="menu-desc">留言</span>
+			            </a>
+			        </li>
+			    	
+			    	
+			    	<hr class="hrstyle">
+			    	
+			    	<div class="systemBox">
+			    		<p>Copyright @ 2021-2022 河南XXX公司</p>
+			    		<p>技术支持：中企电子商务</p>
+			    		<div style="width: 100%;height: 80px;"></div>
+			    	</div>
+			    </ul>
+				
+				
+			</aside>
+		</div>
+		
+		<!--import script-->
+		<script type="application/javascript" src="js/jquery.min.js"></script>
+		<script type="application/javascript" src="js/jquery.pjax.js"></script>
+		<script type="application/javascript" src="js/bootstrap.js"></script>
+		<script type="application/javascript" src="js/nprogress.js"></script>
+		<script type="application/javascript" src="js/admin.js"></script>
+		
+		<script type="text/javascript">
+			//保证关闭了侧拉栏之后，刷新浏览器测拉栏不会跑出来，为了减少卡顿，使用原生
+			if (getCookie('drawerIsClosed')) {
+				addClass(document.getElementById('drawer'), 'drawer-closed')
+				addClass(document.getElementById('content-wrap'), 'content-wrap-full')
+			}
+		</script>
+	</body>
+</html>
